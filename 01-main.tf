@@ -6,11 +6,15 @@ terraform {
     region         = "ap-south-1"
     encrypt        = true
     dynamodb_table = "devops-dev-tfstate-lock"
-    profile = "rupesh" 
+    profile        = "rupesh"
   }
 }
 
 provider "aws" {
   region = "ap-south-1"
+}
+
+locals {
+    prefix = "${var.prefix}-${terraform.workspace}"
 }
 ```
